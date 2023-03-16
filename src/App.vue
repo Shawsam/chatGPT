@@ -39,7 +39,7 @@
 
         wx.ready(function () {
           var shareData64 = {
-              title: "仟传AI助手-AI助手", //必填,分享标题
+              title: "TargetSocial-AI助手", //必填,分享标题
               desc: "仟传AI助手，启迪灵感，释放效率", //选填,分享描述
               imgUrl: "https://ai-domain-mapping.tarsocial.com/ai-assistant/static/ico/favicon-155ae4ce.ico", //选填,分享图链接
               link: window.location.href, //必填,⽀持直接填写location.href
