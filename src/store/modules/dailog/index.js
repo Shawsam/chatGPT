@@ -52,10 +52,13 @@ export default {
         },
         fillStateSet(state,status){
            state.isFilling = status
+           if(status==false){
+              state.askVal = ''
+           }
         },
         askValSet(state,val){
            state.askVal = val
-      },
+        },
     },
 
     actions: {
