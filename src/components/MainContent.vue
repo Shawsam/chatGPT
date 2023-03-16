@@ -140,7 +140,9 @@ export default {
       return id;
     }
 
-    function linkSocket(msgId, isRetry) {}
+    function linkSocket(msgId, isRetry) {
+      initSocket()
+    }
     
     //加载违禁词
     function initWords() {
@@ -192,9 +194,9 @@ export default {
         }
       });
       // 滚动条
-      if (!isRetry) page_scroll();
-      timeOut = null;
-      return;
+      // if (!isRetry) page_scroll();
+      // timeOut = null;
+      // return;
     }
 
     function onClose() {
@@ -354,9 +356,6 @@ export default {
           }"
         >
           {{ item.msg }}
-          <span v-show="item.reTry" @click="reConnect(item)">
-            <van-icon name="replay" />
-          </span>
           <van-icon v-show="item.reTry" @click="reConnect(item)" name="replay" />
         </div>
         <van-notice-bar
@@ -502,10 +501,10 @@ export default {
       position: relative;
       padding:4px;
       .van-field {
-        padding:0 20px;
+        padding:7px 120px 7px 20px;
         flex:1;
         max-height: 180px;
-        line-height: 45px;
+        line-height: 31px;
         border-radius: 5px;
         font-size: 15px;
         overflow-y:scroll;
@@ -547,6 +546,12 @@ export default {
   }
   ::v-deep .van-popover__action-text {
     width: 10vw !important;
+  }
+
+  ::v-deep .van-icon-replay{
+    position:absolute;
+    right:15px;
+    top:22px;
   }
 
   @media screen and(max-width:1400px) {
