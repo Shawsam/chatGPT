@@ -1,9 +1,24 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from "path"     //需要安装@types/node，否则编译报错
+import path from "path"                                  //需要安装@types/node，否则编译报错
+import { visualizer } from 'rollup-plugin-visualizer';   //打包分析
+import viteCompression from 'vite-plugin-compression'    //gzip压缩
+
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    visualizer({
+       open: true
+    }),
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'gzip',
+      ext: '.gz',
+    })
+  ],
   resolve: {
     //别名配置
     alias: {
@@ -15,6 +30,31 @@ export default defineConfig({
     preprocessorOptions:{
       less:{}
     }
+  },
+  build: { 
+    terserOptions: {
+      compress: {  //生产环境时移除console
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    // chunkSizeWarningLimit: 1500,大文件报警阈值设置,不建议使用
+    rollupOptions: {
+      output: {   
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+        manualChunks(id) { //静态资源分拆打包
+        if (id.includes('node_modules')) {
+            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          }
+        }
+      }
+    },
+    //关闭文件计算
+    reportCompressedSize: false,
+    //关闭生成map文件 可以达到缩小打包体积
+    sourcemap: false, // 这个生产环境一定要关闭，不然打包的产物会很大
   },
   server:{
     proxy: {

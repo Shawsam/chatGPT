@@ -69,7 +69,7 @@ export default {
 <template>
    <div class="header">
       <img @click="showPopup" class="btn menu" src="../assets/menu.png" />
-      <p class="tit">{{ isFilling?'正在回复...':'TargetSocial'}}</p>
+      <p class="tit">{{ isFilling?'正在回复...':'仟传AI助手'}}</p>
       <img @click="newDialog"  class="btn add" src="../assets/add.png" />
       <van-popup position="left"   closeable v-model:show="show"  :style="{ width: '100%', height: '100%'}">
         <div class="content">

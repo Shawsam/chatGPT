@@ -34,13 +34,14 @@ export default {
 
     // 提问
     const onSubmit = async () => {
-      page_scroll();
       let userId = store.getters.userId
       if(!userId){
         store.commit('loginPanelSet',true)
         return;
       }
       let _askVal = askVal.value
+      if(_askVal == "") return;          //输入校验
+      page_scroll();
       store.commit('Dialoging');         //正在对话
       if (_askVal !== "") {
         // 先在前端判定违禁词
@@ -316,6 +317,7 @@ export default {
       askKeyDown:(e)=>{
         if(!e.shiftKey && e.keyCode == 13){
             if(e.keyCode == 13){
+              e.preventDefault()
               onSubmit()
             }else{
               console.log('换行')
@@ -332,7 +334,7 @@ export default {
 <template>
   <div class="main">
     <div class="title" v-if="$store.getters.dialogShow">
-        <p>{{ isFilling?'正在回复...':'TargetSocial'}}</p>
+        <p>{{ isFilling?'正在回复...':'仟传AI助手'}}</p>
     </div>
     <div class="content" id="scrollDiv" v-if="$store.getters.dialogShow">
       <div class="row" v-for="(item, index) in $store.getters.msgList" :key="item.name" clearable>
@@ -382,6 +384,7 @@ export default {
         rows="1"
         autosize
         type="textarea"
+        :disabled="isFilling"
         @keydown.stop="askKeyDown"
       />
       <van-button type="primary" :disabled="isFilling || askVal==''" @click="onSubmit()">
