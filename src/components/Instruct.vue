@@ -1,6 +1,6 @@
 <script>
 export default {
-  emits: ["clickInput"],
+  emits: ["clickInput"],  //向父级组件传参         
   setup() {
   },
 

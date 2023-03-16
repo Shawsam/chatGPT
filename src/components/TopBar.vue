@@ -21,7 +21,6 @@ export default {
         }
         let userId = store.getters.userId
         if(userId){
-          store.commit('consIdSet','')
           store.commit('newDialog')
           store.dispatch('getRecords')
         }else{

@@ -14,7 +14,8 @@ export default {
           if(userId){
             return userId
           }else{
-            return localStorage.getItem('userId')   
+            state.userId = localStorage.getItem('userId') 
+            return state.userId  
           }
       },
       loginPanelShow(state){
@@ -28,7 +29,8 @@ export default {
         if(records){
           return records
         }else{
-          return JSON.parse(localStorage.getItem('records'))   
+          state.records = JSON.parse(localStorage.getItem('records'))
+          return state.records   
         }
       }
     },

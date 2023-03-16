@@ -30,6 +30,8 @@ export default {
         newDialog(state){
            state.msgList = []
            state.show = false
+           state.askVal = ''
+           state.consId = ''
         },
         Dialoging(state){
            state.show = true
@@ -78,7 +80,6 @@ export default {
             let res = await consDelete(id)
             if(res.data.code==0){
                if(consId == id){
-                  commit('consIdSet','')
                   commit('newDialog','')
                }
                dispatch('getRecords')

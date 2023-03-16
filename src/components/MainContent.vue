@@ -6,18 +6,26 @@ import { v4 as uuidv4 } from "uuid";
 import Instruct from './Instruct.vue';
 import { useStore } from "vuex";
 
-let refreshAnswerIndex = -1
+
 export default {
   components: { Instruct },
   setup() {
-    const inputRef = ref();
+    const inputRef = ref();          //用于focus控制
     const store = useStore()
-    const askVal = ref("");         //用户输入
+    const askVal = computed({        //input双向绑定
+      get(){
+          return store.getters.askVal
+      },
+      set(val){
+          store.commit('askValSet',val)
+      }
+    })
 
     let msgId = '';     // 每次请求的标识
     let timeOut = null;
     let reTryTimes = 0;
     let ws = null;
+    let refreshAnswerIndex = -1;
 
     onMounted(() => {
       initWords();     //违禁词加载
@@ -127,8 +135,7 @@ export default {
     // 生成umsgId
     function gmsgId() {
       let id = uuidv4()
-      console.log('生成消息id')
-      console.log(id)
+      console.log('生成消息id'+id)
       return id;
     }
 
@@ -176,7 +183,6 @@ export default {
       let msgList = store.getters.msgList
       msgList[msgList.length - 1].msg = "请求失败了";
       store.commit('fillStateSet',false)
-      askVal.value = "";
       // 显示 重试按钮
       msgList.forEach((item) => {
         if (item.msgId === msgId && item.isAsk) {
@@ -231,7 +237,6 @@ export default {
       if (jsonData.isDone) {
         // 随后关闭 正在输入.. z 按钮取消禁用 输入框也清空 超时任务也置为false
         store.commit('fillStateSet',false)
-        askVal.value = "";
         // 滚动条
         page_scroll();
         refreshAnswerIndex = -1
@@ -301,8 +306,8 @@ export default {
     return {
       isFilling: computed(() => store.getters.isFilling),
       inputRef,
-      refreshAnswer,
       askVal,
+      refreshAnswer,
       onSubmit,
       reConnect,
       setInputVal:(e)=>{
@@ -317,10 +322,6 @@ export default {
             }
         }
       },
-      askValInput(e){
-        let askVal = e.target.value
-        store.commit('askValSet',askVal)
-      }
     };
   },
 
@@ -374,7 +375,6 @@ export default {
       <van-field
         autocomplete="off"
         class="van-field"
-        :disabled="isFilling"
         v-model="askVal"
         placeholder="需要我做些什么?"
         maxlength="100"
@@ -382,7 +382,6 @@ export default {
         rows="1"
         autosize
         type="textarea"
-        @input="askValInput"
         @keydown.stop="askKeyDown"
       />
       <van-button type="primary" :disabled="isFilling || askVal==''" @click="onSubmit()">
@@ -507,17 +506,21 @@ export default {
         border-radius: 5px;
         font-size: 15px;
         overflow-y:scroll;
+        &::-webkit-scrollbar{
+          display:none;
+        }
       }
       .van-button {
         position:absolute;
-        right:0;
-        bottom:0;
-        height: 49px;
-        line-height: 49px;
+        right:4px;
+        bottom:4px;
+        height: 45px;
+        line-height: 45px;
         color:#fff;
         width: 120px;
         outline:none;
         text-align:center;
+        border-radius:5px 0 0 5px;
         &:before{
           display:none
         }
