@@ -319,7 +319,7 @@ export default {
       },
       askValInput(e){
         let askVal = e.target.value
-        // store.commit('askValSet',askVal)
+        store.commit('askValSet',askVal)
       }
     };
   },

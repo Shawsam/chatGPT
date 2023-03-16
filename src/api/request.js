@@ -2,7 +2,6 @@ import axios from "axios";
 import { showLoadingToast, closeToast  } from "vant";
 
 
-let loadingInstance
 const $http = axios.create({
   // baseURL: process.env.VUE_APP_BASE_API,
   timeout: 30000
@@ -18,7 +17,8 @@ $http.interceptors.request.use( config => {
   });
 
   // 在发送请求之前做些什么
-  config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+  config.headers['Content-Type'] = 'application/json'
+  if(config.isForm)   config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
   config.headers['token'] = 'unauthorized'
     // console.log(store.getters.token);
     // if (getToken()) {

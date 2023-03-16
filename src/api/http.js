@@ -7,7 +7,8 @@ export const getWxShareInfo = data => {
     data: {
       appid: 'wx277b57fe859c9b5f',
       shareurl:window.location.href
-    }
+    },
+    isForm:true
   })
 }
 
