@@ -378,7 +378,7 @@ export default {
         class="van-field"
         v-model="askVal"
         placeholder="需要我做些什么?"
-        maxlength="100"
+        maxlength="1000"
         ref="inputRef"
         rows="1"
         autosize
@@ -501,7 +501,7 @@ export default {
       position: relative;
       padding:4px;
       .van-field {
-        padding:7px 120px 7px 20px;
+        padding:7px 100px 7px 20px;
         flex:1;
         max-height: 180px;
         line-height: 31px;
@@ -519,7 +519,7 @@ export default {
         height: 45px;
         line-height: 45px;
         color:#fff;
-        width: 120px;
+        width: 90px;
         outline:none;
         text-align:center;
         border-radius:5px 0 0 5px;
