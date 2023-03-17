@@ -23,8 +23,8 @@ export default {
                     写一个面霜产品的slogan
                     <img class="icon" src="../assets/go.png" />
                 </p>
-                <p @click="this.$emit('clickInput','早C晚A什么意思？')">
-                    早C晚A什么意思？
+                <p @click="this.$emit('clickInput','介绍一下早C晚A这个护肤概念')">
+                    介绍一下早C晚A这个护肤概念
                     <img class="icon" src="../assets/go.png" />
                 </p>
                 <p @click="this.$emit('clickInput','帮一周啥也没干的运营人写个周报')">
