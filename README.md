@@ -5,5 +5,5 @@
 
 ## 采用 Vue3 + Vite 构建
 
-- npm install
-- npm run dev
+- pnpm install
+- pnpm run dev

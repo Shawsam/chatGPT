@@ -1,0 +1,22 @@
+{
+  // 保存时编辑器自动格式化代码
+  "editor.formatOnSave": true,
+  // eslint配置项，保存时自动修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  // 默认使用prettier格式化支持的文件
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 指定 *.vue 文件的格式化工具为vetur
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "vetur.format.defaultFormatter.html": "prettier",
+  // 格式化stylus, 需安装Manta’s Stylus Supremacy插件
+  "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+  "stylusSupremacy.insertColons": false, // 是否插入冒号
+  "stylusSupremacy.insertSemicolons": false, // 是否插入分好
+  "stylusSupremacy.insertBraces": false, // 是否插入大括号
+  "stylusSupremacy.insertNewLineAroundImports": false, // import之后是否换行
+  "stylusSupremacy.insertNewLineAroundBlocks": false // 两个选择器中是否换行
+}
