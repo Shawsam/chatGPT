@@ -1,10 +1,15 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.5](https://github.com/Shawsam/chatGPT/compare/v0.0.8...v0.0.5) (2023-03-21)
 
 ### 🚀 Chore | 构建/工程依赖/工具(配置文件)
 
-- **config:** pre-push hook 配置 ([e715558](https://github.com/Shawsam/chatGPT/commit/e715558dd227d9412a722e40b26b11e93c628de4))
+- **config:** 配置更改 ([3eb0ee9](https://github.com/Shawsam/chatGPT/commit/3eb0ee953ee15284c05d38cab21573182f5082cc))
+- **config:** 配置更改 ([472c58f](https://github.com/Shawsam/chatGPT/commit/472c58f92b133560c629c3acfe90330b827eaced))
+- **config:** 配置更改 ([c6c6b7b](https://github.com/Shawsam/chatGPT/commit/c6c6b7b3f93b4c128eb30c9dd70fa25c7cc21307))
+- **config:** 配置更改 ([b0d999c](https://github.com/Shawsam/chatGPT/commit/b0d999cfeba28f07b725ae331213497c9c113c2e))
 
 ### [0.0.4](http://git.tarsocial.com/data-api/innovation/chatgptwebv2/compare/v0.0.3...v0.0.4) (2023-03-21)
 
