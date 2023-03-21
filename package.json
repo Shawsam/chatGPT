@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git add . && git cz"
   },
   "dependencies": {
     "@types/node": "^18.14.6",
