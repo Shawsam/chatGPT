@@ -21,8 +21,11 @@
 1.  husky 是 git hook 的管理工具，在提交代码的时候会触发 husky 的回调，因此可以使用 husky 监听 git commit 事件，触发其他的操作或者指令。
     &nbsp;
 2.  pre-commit 钩子中运行 lint-staged 对暂存代码进行检测；(整个项目上运行 lint 速度会很慢，lint-staged 能够让 lint 只检测暂存区的文件，所以速度很快)。
+    `` npx husky add .husky/pre-commit '`npm run lint` --edit "$1"' `` 添加钩子
     &nbsp;
 3.  commit-msg 钩子中运行 commitlint 对提交信息进行校验。(commitlint.config.js 报错->commitlint.config.cjs)
+    `npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'` 添加钩子
+    &nbsp;
 
     - 单行信息
 
@@ -70,9 +73,13 @@
           git commit --no-verify -m "xxx"
           ```
 
-## 5.使用 commitizen 生成符合规范的 commit message —— [参考](https://juejin.cn/post/6934292467160514567#heading-7)
+## 5.使用 commitizen 生成符合规范的 commit message —— [参考](https://juejin.cn/post/6934292467160514567#heading-7)（）
 
 - commitizen 全局安装通过 git cz 执行，项目安装 通过 npm run commit 执行
 - cz-conventional-changelog 是 commitizen 的首选适配器，缺点是提示信息都是英文
 - cz-customizable 自定义适配器来支持中文提示 创建.cz-config.js 文件 —— [参考](https://blog.csdn.net/DoubleLift_DSX/article/details/121984767)
 - ~~git-cz 适配器、cz-emoji 适配器 等~~
+
+## 6.生成 changelog —— [参考](https://juejin.cn/post/7199250631114407995#heading-9)
+
+- npm run release
