@@ -1,66 +1,27 @@
 module.exports = {
   types: [
-    {
-      value: 'feat',
-      name: 'feat: 新功能'
-    },
-    {
-      value: 'fix',
-      name: 'fix: 修复bug'
-    },
-    {
-      value: 'init',
-      name: 'init: 初始化'
-    },
-    {
-      value: 'docs',
-      name: 'docs: 文档变更'
-    },
-    {
-      value: 'style',
-      name: 'style: 代码美化（不影响代码含义的更改）'
-    },
-    {
-      value: 'refactor',
-      name: 'refactor: 重构'
-    },
-    {
-      value: 'perf',
-      name: 'perf: 性能优化'
-    },
-    {
-      value: 'test',
-      name: 'test: 测试用例更改'
-    },
-    {
-      value: 'revert',
-      name: 'revert: 回退'
-    },
-    {
-      value: 'build',
-      name: 'build: 打包（影响构建系统或外部依赖项的更改，gulp，npm等）'
-    },
-    {
-      value: 'chore',
-      name: 'chore: 构建/工程依赖/工具（更改构建过程或辅助工具和库，例如文档生成）'
-    },
-    {
-      value: 'ci',
-      name: 'ci: 持续集成流程（对CI配置文件和脚本的更改）'
-    },
-    {
-      value: 'merge',
-      name: 'merge: 合并分支'
-    }
+    { value: 'feat', name: '✨ Features | 新功能' },
+    { value: 'fix', name: '🐛 Bug Fixes | Bug 修复' },
+    { value: 'merge', name: '🎸Code Merge | 代码合并' },
+    { value: 'docs', name: '✏️ Documentation | 文档' },
+    { value: 'perf', name: '⚡ Performance Improvements | 性能优化' },
+    { value: 'style', name: '💄 Styles | 风格' },
+    { value: 'init', name: '🎉 Init | 初始化' },
+    { value: 'revert', name: '⏪ Revert | 版本回退' },
+    { value: 'refactor', name: '♻️ Code Refactor | 代码重构' },
+    { value: 'chore', name: '🚀 Chore | 构建/工程依赖/工具(配置文件)' },
+    { value: 'build', name: '📦‍ Build System | 打包构建(gulp, npm等)' },
+    { value: 'ci', name: '👷 Continuous Integration | CI 配置' },
+    { value: 'test', name: '✅ Tests | 测试用例更改' }
   ],
   scopes: [
     ['components', '组件相关'],
-    ['utils', 'utils 相关'],
-    ['ui', '对 ui 的调整'],
+    ['utils', 'utils相关'],
+    ['ui', 'UI相关'],
     ['styles', '样式相关'],
     ['deps', '项目依赖'],
-    ['config', '配置 修改'],
-    ['other', '其他 修改']
+    ['config', '配置修改'],
+    ['other', '其他修改']
   ].map(([value, description]) => {
     return {
       value,
@@ -69,7 +30,7 @@ module.exports = {
   }),
   // allowCustomScopes: true,
   messages: {
-    type: '请选择提交类型(必填)',
+    value: '请选择提交类型(必填)',
     scope: '选择文件修复范围(可选)',
     customScope: '请输入文件修改范围', // 选择 scope: custom 时会出下面的提示
     subject: '请简要描述提交(必填)',
