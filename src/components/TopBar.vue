@@ -1,7 +1,7 @@
 <script>
 import { useStore } from 'vuex'
 import { computed, ref } from 'vue'
-import { showConfirmDialog } from 'vant'
+import { showToast, showConfirmDialog } from 'vant'
 export default {
   setup() {
     const store = useStore()
@@ -118,32 +118,35 @@ export default {
 
 <style scoped lang="less">
 .header {
-  display: none;
   position: fixed;
-  height: 60px;
-  line-height: 60px;
+  z-index: 1;
+  display: none;
   width: 100%;
-  background: #000;
+  height: 60px;
   text-align: center;
   color: #fff;
-  z-index: 1;
+  background: #000;
+  line-height: 60px;
+
   .tit {
     padding: 0 !important;
     margin: 0 !important;
     font-weight: bold;
   }
+
   .menu {
     position: absolute;
-    width: 30px;
-    left: 15px;
     top: 15px;
+    left: 15px;
+    width: 30px;
   }
+
   .add {
     position: absolute;
-    width: 26px;
-    right: 15px;
     top: 15px;
+    right: 15px;
     z-index: 10;
+    width: 26px;
   }
 
   .content {
@@ -152,82 +155,97 @@ export default {
     height: 100%;
     flex-direction: column;
   }
+
   .title {
     color: #fff;
     background: #000;
   }
+
   .dialogList {
-    background: #f1f1f1;
-    &::-webkit-scrollbar {
-      background: rgba(0, 0, 0, 0.2);
-      width: 0;
-    }
-    padding: 0 15px;
-    flex: 1;
     overflow-y: scroll;
+    padding: 0 15px;
+    background: #f1f1f1;
+    flex: 1;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: rgb(0 0 0 / 20%);
+    }
+
     .item {
+      position: relative;
+      padding: 10px 15px;
       margin-top: 15px;
-      background: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      text-align: left;
+      color: #333;
+      background: rgb(255 255 255 / 40%);
       border: 1px solid transparent;
       border-radius: 10px;
-      text-align: left;
-      padding: 10px 15px;
-      font-size: 14px;
-      color: #333;
       cursor: pointer;
+
       .name {
         padding-right: 10px;
       }
+
       &.active {
-        background: rgba(255, 255, 255, 1);
+        background: rgb(255 255 255 / 100%);
         border: 1px solid #e8e8e8;
       }
-      position: relative;
+
       &:last-child {
-        border: none;
         margin-bottom: 15px;
+        border: none;
       }
+
       p {
         overflow: hidden;
+        padding: 0;
+        margin: 0;
         text-overflow: ellipsis;
         white-space: nowrap;
-        margin: 0;
-        padding: 0;
         line-height: 30px;
+
         &.answer {
           color: #999;
         }
       }
+
       .more {
         position: absolute;
-        right: 12px;
         top: 10px;
+        right: 12px;
         width: 15px;
       }
     }
   }
+
   .menuList {
-    box-shadow: 0px 1px 2px #e8e8e8 inset;
-    height: 100px;
-    padding: 0 15px;
     position: relative;
     z-index: 100;
+    padding: 0 15px;
+    height: 100px;
     color: #1989fa;
+    box-shadow: 0 1px 2px #e8e8e8 inset;
+
     .item {
       height: 50px;
       line-height: 50px;
       font-size: 15px;
       cursor: pointer;
       user-select: none;
+
       &:nth-child(1) {
         border-bottom: 1px solid #e8e8e8;
       }
+
       img {
         display: inline-block;
-        height: 25px;
         margin-right: 5px;
+        height: 25px;
         transform: translateY(5px);
       }
+
       span {
         display: inline-block;
         width: 70px;
@@ -236,6 +254,7 @@ export default {
     }
   }
 }
+
 @media screen and(max-width:1200px) {
   .header {
     display: block;

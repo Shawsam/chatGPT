@@ -29,30 +29,34 @@ export default {
 <style scoped lang="less">
 .panel {
   position: fixed;
-  height: 100%;
-  width: 100%;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+
   .shadow {
-    background: rgba(0, 0, 0, 0.5);
     position: relative;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 50%);
   }
+
   .content {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    padding: 30px;
     background: #fff;
     border-radius: 10px;
-    padding: 30px;
-    position: fixed;
-    left: 50%;
-    top: 40%;
     transform: translate(-50%, -50%);
+
     .colse {
       position: absolute;
-      right: 20px;
       top: 20px;
+      right: 20px;
       width: 16px;
       height: 16px;
     }
+
     .form {
       padding: 20px;
     }

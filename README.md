@@ -5,6 +5,10 @@
 
 ## 1. 使用 Vue3 + Vite 构建
 
+1. 使用 Vant UI 框架
+2. 使用 Less CSS 编译预处理器
+3. 使用 Vuex 状态管理库（计划后续采用 pinia 替换）
+
 - npm install 安装依赖
 - npm run dev 本地运行
 
@@ -73,7 +77,7 @@
           git commit --no-verify -m "xxx"
           ```
 
-## 5.使用 commitizen 生成符合规范的 commit message —— [参考](https://juejin.cn/post/6934292467160514567#heading-7)（）
+## 5.使用 commitizen 生成符合规范的 commit message —— [参考](https://juejin.cn/post/6934292467160514567#heading-7)
 
 - commitizen 全局安装通过 git cz 执行，项目安装 通过 npm run commit 执行
 - cz-conventional-changelog 是 commitizen 的首选适配器，缺点是提示信息都是英文

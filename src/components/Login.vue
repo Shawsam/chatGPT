@@ -160,36 +160,42 @@ export default {
 <style scoped lang="less">
 .panel {
   position: fixed;
-  height: 100%;
-  width: 100%;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+
   .shadow {
-    background: rgba(0, 0, 0, 0.5);
     position: relative;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 50%);
   }
+
   .content {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    padding: 30px;
     background: #fff;
     border-radius: 10px;
-    padding: 30px;
-    position: fixed;
-    left: 50%;
-    top: 40%;
     transform: translate(-50%, -50%);
+
     .colse {
       position: absolute;
-      right: 20px;
       top: 20px;
+      right: 20px;
       width: 16px;
       height: 16px;
     }
+
     .form {
       width: 300px;
+
       .gp {
-        border-bottom: 1px solid #e8e8e8;
-        padding: 15px 10px;
         display: flex;
+        padding: 15px 10px;
+        border-bottom: 1px solid #e8e8e8;
+
         .input {
           flex: 1;
           height: 30px;
@@ -197,53 +203,61 @@ export default {
           color: #333 !important;
           background: #fff !important;
         }
+
         .codeImg {
           height: 30px;
         }
       }
+
       .count {
         display: inline-block;
         width: 60px;
+        height: 30px;
         text-align: center;
         color: #1989fa;
-        height: 30px;
         line-height: 30px;
       }
+
       .yzmBtn {
-        color: #1989fa;
         height: 30px;
+        color: #1989fa;
         line-height: 30px;
         cursor: pointer;
       }
+
       .btn {
-        background: linear-gradient(90deg, lightblue, #1989fa);
+        margin-top: 20px;
         height: 46px;
-        line-height: 46px;
-        border-radius: 23px;
+        font-size: 15px;
         text-align: center;
         color: #fff;
-        font-size: 15px;
-        margin-top: 20px;
+        background: linear-gradient(90deg, lightblue, #1989fa);
+        border-radius: 23px;
+        line-height: 46px;
       }
+
       .other {
-        color: #3c3c3c;
-        padding: 30px 0;
-        text-align: center;
         display: flex;
         justify-content: space-between;
+        padding: 30px 0;
+        text-align: center;
+        color: #3c3c3c;
       }
+
       .tip {
-        color: #999;
-        margin-top: 60px;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        margin-top: 60px;
+        color: #999;
+
         .icon {
           display: inline-block;
-          height: 20px;
-          width: 20px;
           margin-right: 6px;
+          width: 20px;
+          height: 20px;
         }
+
         .agreenment {
           color: #1989fa;
         }
@@ -251,6 +265,7 @@ export default {
     }
   }
 }
+
 @media screen and(max-width:1200px) {
   .panel {
     font-size: 14px;

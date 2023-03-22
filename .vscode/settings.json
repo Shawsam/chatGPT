@@ -3,7 +3,9 @@
   "editor.formatOnSave": true,
   // eslint配置项，保存时自动修复
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": false,
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
   // 默认使用prettier格式化支持的文件
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -18,5 +20,6 @@
   "stylusSupremacy.insertSemicolons": false, // 是否插入分好
   "stylusSupremacy.insertBraces": false, // 是否插入大括号
   "stylusSupremacy.insertNewLineAroundImports": false, // import之后是否换行
-  "stylusSupremacy.insertNewLineAroundBlocks": false // 两个选择器中是否换行
+  "stylusSupremacy.insertNewLineAroundBlocks": false, // 两个选择器中是否换行
+  "stylelint.validate": ["css", "less", "vue", "html"]
 }

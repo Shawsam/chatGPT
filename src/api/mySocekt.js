@@ -1,4 +1,4 @@
-import { def } from '_@vue_shared@3.2.45@@vue/shared'
+// import { def } from '_@vue_shared@3.2.45@@vue/shared'
 
 const ws = new WebSocket('ws://10.0.7.30:20021/ws')
 

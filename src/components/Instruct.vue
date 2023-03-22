@@ -59,47 +59,57 @@ export default {
 
 <style scoped lang="less">
 .logo {
-  text-align: center;
   padding-top: 90px;
   padding-bottom: 80px;
+  text-align: center;
+
   img {
-    height: 80px;
     width: auto;
+    height: 80px;
   }
 }
+
 .instruct {
   display: flex;
-  color: #fff;
-  text-align: center;
-  padding: 0 20px;
   justify-content: center;
   align-items: center;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+
   .item {
-    width: 320px;
     padding: 0 10px;
+    width: 320px;
+
     .title {
-      font-size: 26px;
       margin-bottom: 30px;
+      font-size: 26px;
+
       p {
-        line-height: 36px;
-        margin: 0;
         padding: 0;
+        margin: 0;
+        line-height: 36px;
       }
+
       .en {
         font-size: 18px;
       }
     }
+
     .rect {
       margin: 0 20px;
       font-size: 14px;
+
       p {
-        background: rgba(255, 255, 255, 0.3);
+        background: rgb(255 255 255 / 30%);
         border-radius: 10px;
         line-height: 55px;
       }
+
       &.demo p {
         cursor: pointer;
         position: relative;
+
         .icon {
           position: absolute;
           top: 5px;
@@ -110,31 +120,37 @@ export default {
     }
   }
 }
+
 @media screen and(max-width:1400px) {
   .instruct {
     padding: 0;
+
     .item {
-      width: 295px;
-      margin-bottom: 50px;
       padding: 0;
+      margin-bottom: 50px;
+      width: 295px;
     }
   }
 }
+
 @media screen and(max-width:1200px) {
   .logo {
-    text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    text-align: center;
+
     img {
-      height: 50px;
       width: auto;
+      height: 50px;
     }
   }
+
   .instruct {
     flex-direction: column;
+
     .item {
-      margin-bottom: 50px;
       padding: 0;
+      margin-bottom: 50px;
     }
   }
 }

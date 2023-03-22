@@ -106,52 +106,60 @@ export default {
 
 <style scoped lang="less">
 .sidebar {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
   display: flex;
-  flex-direction: column;
   padding: 30px 20px;
+  color: #fff;
+  background: rgb(255 255 255 / 20%);
+  flex-direction: column;
+
   .btn_add {
-    height: 40px;
-    line-height: 40px;
-    background: #fff;
-    color: #333;
-    border-radius: 5px;
-    text-align: center;
     margin-bottom: 20px;
+    height: 40px;
+    text-align: center;
+    color: #333;
+    background: #fff;
+    border-radius: 5px;
+    line-height: 40px;
     cursor: pointer;
     user-select: none;
   }
+
   .dialogList {
-    width: 260px;
-    &::-webkit-scrollbar {
-      background: rgba(0, 0, 0, 0.2);
-      width: 0px;
-    }
-    flex: 1;
     overflow-y: scroll;
+    width: 260px;
+    flex: 1;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: rgb(0 0 0 / 20%);
+    }
+
     .item {
+      position: relative;
       padding: 5px 10px;
+      margin-top: 10px;
       font-size: 14px;
       color: lightcyan;
-      cursor: pointer;
-      position: relative;
-      margin-top: 10px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgb(255 255 255 / 10%);
       border-radius: 10px;
+      cursor: pointer;
+
       .name {
         padding-right: 10px;
       }
+
       .more {
         position: absolute;
-        right: 10px;
         top: 10px;
+        right: 10px;
         width: 15px;
       }
+
       &.active {
-        background: rgba(255, 255, 255, 0.4);
+        background: rgb(255 255 255 / 40%);
         border-radius: 5px;
       }
+
       p {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -159,24 +167,28 @@ export default {
       }
     }
   }
+
   .menuList {
-    border-top: 1px solid #fff;
+    padding: 20px 15px 15px;
     height: 100px;
-    padding: 20px 15px 15px 15px;
+    border-top: 1px solid #fff;
+
     .item {
       height: 40px;
       line-height: 40px;
       font-size: 15px;
       cursor: pointer;
       user-select: none;
+
       img {
-        height: 20px;
         margin-right: 10px;
+        height: 20px;
         transform: translateY(5px);
       }
     }
   }
 }
+
 @media screen and(max-width:1200px) {
   .sidebar {
     display: none;

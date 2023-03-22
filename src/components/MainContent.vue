@@ -1,6 +1,6 @@
 <script>
-import { showDialog, showToast, Toast } from 'vant'
-import { reactive, ref, nextTick, onMounted, computed } from 'vue'
+import { showDialog, showToast } from 'vant'
+import { ref, onMounted, computed } from 'vue'
 import { getTag } from '../api/http'
 import { v4 as uuidv4 } from 'uuid'
 import Instruct from './Instruct.vue'
@@ -120,8 +120,7 @@ export default {
     }
     // 滚动
     function page_scroll() {
-      let i = 1,
-        interval
+      let interval
       clearInterval(interval)
       let element = document.getElementById('scrollDiv')
       element.scrollTop = 0 // 不管他在哪里，都让他先回到最上面
@@ -147,6 +146,7 @@ export default {
     }
 
     function linkSocket(msgId, isRetry) {
+      console.log(msgId, isRetry)
       initSocket()
     }
 
@@ -189,6 +189,7 @@ export default {
     }
 
     function onError(err) {
+      console.log(err)
       let msgList = store.getters.msgList
       msgList[msgList.length - 1].msg = '请求失败了'
       store.commit('fillStateSet', false)
@@ -420,185 +421,208 @@ export default {
 
 <style scoped lang="less">
 .main {
-  flex: 1;
-  padding: 0 50px;
-  display: flex;
-  flex-direction: column;
-  padding-top: 70px;
   position: relative;
+  display: flex;
+  padding: 0 50px;
+  padding-top: 70px;
+  flex: 1;
+  flex-direction: column;
+
   .title {
     position: absolute;
-    text-align: center;
-    width: 100%;
     top: 30px;
     left: 0;
-    color: #fff;
+    width: 100%;
     height: 5vh;
-    line-height: 5vh;
-    text-align: center;
     font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    line-height: 5vh;
     font-weight: 600;
+
     @keyframes spin {
       to {
-        -webkit-transform: translateY(-48px);
         transform: translateY(-48px);
       }
     }
+
     p {
-      margin: 0;
       padding: 0;
+      margin: 0;
     }
   }
+
   .content {
-    box-sizing: border-box;
-    width: 100%;
-    flex: 1;
     overflow-y: auto;
-    // border: 1px solid rgb(212, 212, 212);
-    margin: 5px 0 10px 0;
-    border-radius: 4px;
     padding: 15px 20px;
+    // border: 1px solid rgb(212, 212, 212);
+    margin: 5px 0 10px;
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    flex: 1;
+
     &::-webkit-scrollbar {
       width: 0 !important;
     }
+
     .row {
       width: 100%;
       line-height: 28px;
+
       .notice-tip {
         margin-bottom: 20px;
       }
+
       .name {
+        position: relative;
+        margin: 0 8px 8px 0;
         width: 100%;
         font-size: 0.8rem;
-        margin: 0 8px 8px 0;
         color: #fff;
-        position: relative;
+
         .tag {
           float: right;
+
           .tag_1 {
             position: relative;
+
             .tag_1_list {
-              width: 80vw;
-              text-align: right;
               position: absolute;
               top: 20px;
               right: 0;
               z-index: 10000;
+              width: 80vw;
+              text-align: right;
             }
           }
         }
+
         .fresh {
-          cursor: pointer;
           position: absolute;
-          right: 10px;
           top: 5px;
+          right: 10px;
           height: 22px;
+          cursor: pointer;
         }
       }
+
       .text {
-        white-space: pre-wrap;
-        width: auto;
-        font-size: 0.8rem;
-        background: rgba(255, 255, 255, 0.3);
-        color: #fff;
-        margin-bottom: 10px;
-        border-radius: 4px;
-        padding: 15px;
-        min-height: 58px;
-        word-wrap: break-word;
         position: relative;
+        padding: 15px;
+        margin-bottom: 10px;
+        width: auto;
+        min-height: 58px;
+        font-size: 0.8rem;
+        white-space: pre-wrap;
+        color: #fff;
+        background: rgb(255 255 255 / 30%);
+        border-radius: 4px;
+        word-wrap: break-word;
+
         span {
-          display: inline-block;
           position: absolute;
           // top: 10px;
           right: 10px;
+          display: inline-block;
           color: #4975e9;
         }
       }
     }
   }
+
   .footer {
-    margin-bottom: 80px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    border-radius: 10px;
-    overflow: hidden;
-    background-image: linear-gradient(90deg, lightblue, #1989fa);
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
     padding: 4px;
+    margin-bottom: 80px;
+    border-radius: 10px;
+    background-image: linear-gradient(90deg, lightblue, #1989fa);
+
     .van-field {
-      padding: 7px 100px 7px 20px;
-      flex: 1;
-      max-height: 180px;
-      line-height: 31px;
-      border-radius: 5px;
-      font-size: 15px;
       overflow-y: scroll;
+      padding: 7px 100px 7px 20px;
+      max-height: 180px;
+      font-size: 15px;
+      border-radius: 5px;
+      flex: 1;
+      line-height: 31px;
+
       &::-webkit-scrollbar {
         display: none;
       }
     }
+
     .van-button {
       position: absolute;
       right: 4px;
       bottom: 4px;
-      height: 45px;
-      line-height: 45px;
-      color: #fff;
       width: 90px;
-      outline: none;
+      height: 45px;
       text-align: center;
+      color: #fff;
       border-radius: 5px 0 0 5px;
-      &:before {
+      outline: none;
+      line-height: 45px;
+
+      &::before {
         display: none;
       }
     }
   }
 }
+
 .loading_wrap {
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
   // background: rgb(0, 0, 0, .3);
   .van-loading {
     margin-top: 70%;
   }
 }
+
 .main .footer .van-field::after {
   display: none;
 }
+
 ::v-deep .van-popover__action-text {
   width: 10vw !important;
 }
 
 ::v-deep .van-icon-replay {
   position: absolute;
-  right: 15px;
   top: 22px;
+  right: 15px;
 }
 
 @media screen and(max-width:1400px) {
   .main {
-    padding-left: 30px;
     padding-right: 30px;
+    padding-left: 30px;
   }
+
   .content {
-    padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 }
 
 @media screen and(max-width:1200px) {
   .main {
-    padding: 60px 15px 0 15px !important;
+    padding: 60px 15px 0 !important;
+
     .title {
       display: none;
     }
   }
+
   .footer {
     margin-bottom: 40px !important;
   }

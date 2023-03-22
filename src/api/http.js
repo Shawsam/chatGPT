@@ -1,6 +1,6 @@
 import $http from '@/api/request'
 
-export const getWxShareInfo = (data) => {
+export const getWxShareInfo = () => {
   return $http({
     method: 'post',
     url: 'https://api.h5mo.com/v1/wxopen/wxshare',

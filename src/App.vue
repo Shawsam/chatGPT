@@ -72,27 +72,29 @@ weplay()
 
 <style lang="less">
 .container {
-  height: 100%;
-  width: 100%;
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .empty {
-  color: #333;
-  text-align: center;
   margin-top: 50%;
-  transform: translateY(-50%);
   font-size: 0;
+  text-align: center;
+  color: #333;
+  transform: translateY(-50%);
   line-height: 0;
+
   .icon {
-    width: 50px;
     margin-bottom: 20px;
+    width: 50px;
   }
+
   p {
-    line-height: 25px;
-    font-size: 12px;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    font-size: 12px;
+    line-height: 25px;
   }
 }
 </style>
