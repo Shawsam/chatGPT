@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/Shawsam/chatGPT/compare/v0.0.9...v0.0.10) (2023-03-22)
+
 ### [0.0.9](https://github.com/Shawsam/chatGPT/compare/v0.0.8...v0.0.9) (2023-03-22)
 
 ### 🚀 Chore | 构建/工程依赖/工具(配置文件)
